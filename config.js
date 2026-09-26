@@ -139,7 +139,7 @@ const config = {
         {
           title: "🔞🔞🔞",
           url: urls.tkl,
-          image: "images/links/default.png",
+          image: "images/links/douga.png",
           description: "",
         },
       ],
