@@ -122,7 +122,7 @@ const config = {
     jaguchi: {
       name: "真相はこちらから",
       bio: "",
-      profileImage: "images/profile/jaguchi-onna.png",
+      profileImage: "images/profile/default.png",
 
       background: {
         type: "color",
