@@ -21,7 +21,7 @@ const config = {
     // サイトの公開URL（GitHub PagesのURLを入力してください）
     // ※ X(Twitter)などのSNSでOGP画像を表示させるためには、完全なURL (https://...) が必要です。
     // 例: "https://username.github.io/linkcard"
-    url: "https://username.github.io/linkcard",
+    url: "https://s1you.github.io/linkcard",
 
     // サイト全体のデフォルトタイトル（検索エンジンやブラウザタブ用）
     defaultTitle: "Linkbio - Official Links Hub",
