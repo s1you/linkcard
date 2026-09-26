@@ -1,0 +1,18 @@
+{
+  "name": "linkbio",
+  "version": "1.0.0",
+  "description": "GitHub Pages ready multi-profile Linkbio / Linktree alternative with static OGP generation",
+  "main": "config.js",
+  "scripts": {
+    "build": "node build.js",
+    "preview": "npx serve dist"
+  },
+  "keywords": [
+    "linkbio",
+    "linktree",
+    "github-pages",
+    "ogp",
+    "static-site-generator"
+  ],
+  "license": "MIT"
+}
