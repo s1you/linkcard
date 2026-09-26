@@ -139,7 +139,7 @@ const config = {
         {
           title: "🔞🔞🔞",
           url: urls.tkl,
-          image: "images/links/jaguchi-douga.png",
+          image: "images/links/default.png",
           description: "",
         },
       ],
