@@ -13,6 +13,12 @@
  * - 画像は「images/」フォルダ内に配置したファイルパス、または「https://」から始まる外部画像URLを指定できます。
  */
 
+// URLはここにまとめて指定し、下の設定から参照します。
+const urls = {
+  site: "https://s1you.github.io/linkcard",
+  tkl: "https://lite.tiktok.com/t/ZS9ApLb16J6jJ-RQrxG/",
+};
+
 const config = {
   // ------------------------------------------------------------------
   // 1. サイト全体の共通設定
@@ -21,7 +27,7 @@ const config = {
     // サイトの公開URL（GitHub PagesのURLを入力してください）
     // ※ X(Twitter)などのSNSでOGP画像を表示させるためには、完全なURL (https://...) が必要です。
     // 例: "https://username.github.io/linkcard"
-    url: "https://s1you.github.io/linkcard",
+    url: urls.site,
 
     // サイト全体のデフォルトタイトル（検索エンジンやブラウザタブ用）
     defaultTitle: "例の物",
@@ -102,7 +108,7 @@ const config = {
       links: [
         {
           title: "こちらから見れます",
-          url: "https://lite.tiktok.com/t/ZS9ApLb16J6jJ-RQrxG/",
+          url: urls.tkl,
           image: "images/links/douga.png", // 16:9比率の画像
           description: "",
         },
@@ -111,12 +117,12 @@ const config = {
 
     // ----------------------------------------------------------------
     // 【プロフィール 2】ゲーム専用プロフィール (game)
-    // URL: https://<あなたのサイト>/game/
+    // URL: https://<あなたのサイト>/jaguchi/
     // ----------------------------------------------------------------
-    game: {
-      name: "siyou Games",
-      bio: "ゲーム配信・コミュニティ専用リンク集\n参加型配信やDiscordサーバー情報はこちら！",
-      profileImage: "images/profile/game.svg",
+    jaguchi: {
+      name: "真相はこちらから",
+      bio: "",
+      profileImage: "images/profile/jaguchi-onna.png",
 
       background: {
         type: "color",
@@ -124,29 +130,17 @@ const config = {
       },
 
       og: {
-        title: "siyou Games",
-        description: "ゲーム配信・コミュニティの専用リンク集",
-        image: "images/og/game.svg",
+        title: "真相はこちらから🔞",
+        description: "",
+        image: "images/og/jaguchi-onna.png",
       },
 
       links: [
         {
-          title: "Twitch ライブ配信",
-          url: "https://twitch.tv/",
-          image: "images/links/twitch.svg",
-          description: "毎週金・土 21:00〜 参加型ゲーム配信",
-        },
-        {
-          title: "公式 Discord サーバー",
-          url: "https://discord.com/",
-          image: "images/links/discord.svg",
-          description: "参加型マルチプレイ募集＆雑談コミュニティ",
-        },
-        {
-          title: "YouTube サブチャンネル",
-          url: "https://youtube.com/",
-          image: "images/links/youtube.svg",
-          description: "ハイライトクリップ・アーカイブ動画",
+          title: "🔞🔞🔞",
+          url: urls.tkl,
+          image: "images/links/jaguchi-onna.png",
+          description: "",
         },
       ],
     },

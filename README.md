@@ -191,13 +191,14 @@ pages: {
 ### 4.3. リンクの追加・変更・順番変更
 
 各プロフィールの `links` 配列を編集します。
+リンク先URLは `config.js` 冒頭の `urls` にまとめて指定し、リンク設定では `urls.youtube` のように参照します。新しいリンク先は、先に `urls` へ追加してください。
 
 ```javascript
 links: [
   // 1番目に表示したいリンク
   {
     title: "YouTube チャンネル",
-    url: "https://youtube.com/@channel",
+    url: urls.youtube,
     image: "images/links/youtube.jpg",
     description: "毎週金曜日 20:00 動画更新" // 補足説明（省略可能）
   },
