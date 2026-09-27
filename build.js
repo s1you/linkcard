@@ -131,37 +131,26 @@ function build() {
   const globalAutoRedirect = (config.site && config.site.autoRedirect) || {};
   const defaultAutoRedirectUrl = globalAutoRedirect.url || (config.urls && config.urls.tkl) || '';
   const defaultAutoRedirectDelay = typeof globalAutoRedirect.delayMs === 'number' ? globalAutoRedirect.delayMs : 1500;
-  const defaultAutoRedirectNewTab = globalAutoRedirect.newTab !== false; // デフォルトで新しいタブで開く
   const isGlobalAutoRedirectEnabled = globalAutoRedirect.enabled !== false && !!defaultAutoRedirectUrl;
 
   /**
    * 自動転送スクリプトタグを生成するヘルパー関数
    */
-  function createAutoRedirectTag(targetUrl, delayMs, openInNewTab = true) {
+  function createAutoRedirectTag(targetUrl, delayMs) {
     if (!targetUrl) return '';
     const safeUrl = sanitizeUrl(targetUrl);
     if (!safeUrl || safeUrl === '#') return '';
     const delay = (typeof delayMs === 'number' && delayMs >= 0) ? delayMs : 1500;
-    const isNewTab = !!openInNewTab;
 
-    return `  <!-- 自動転送スクリプト (アクセス後約${delay / 1000}秒で${isNewTab ? '新しいタブ' : '同一タブ'}で指定URLへ遷移) -->
+    return `  <!-- 自動転送スクリプト (アクセス後約${delay / 1000}秒で指定URLへ遷移) -->
   <script>
     (function () {
       var redirectUrl = ${JSON.stringify(safeUrl)};
       var delayMs = ${delay};
-      var openInNewTab = ${isNewTab};
       if (!redirectUrl || redirectUrl === '#') return;
 
       var timer = setTimeout(function () {
-        if (openInNewTab) {
-          var win = window.open(redirectUrl, '_blank');
-          // ポップアップがブロックされた場合は同一タブで開くフォールバック
-          if (!win || win.closed || typeof win.closed === 'undefined') {
-            window.location.href = redirectUrl;
-          }
-        } else {
-          window.location.href = redirectUrl;
-        }
+        window.location.href = redirectUrl;
       }, delayMs);
 
       // ユーザーが手動でリンクをクリックした場合は二重遷移を防ぐためタイマー解除
@@ -286,12 +275,11 @@ function build() {
     } else if (pageRedirectSetting && typeof pageRedirectSetting === 'object') {
       const pageUrl = pageRedirectSetting.url || defaultAutoRedirectUrl;
       const pageDelay = typeof pageRedirectSetting.delayMs === 'number' ? pageRedirectSetting.delayMs : defaultAutoRedirectDelay;
-      const pageNewTab = typeof pageRedirectSetting.newTab === 'boolean' ? pageRedirectSetting.newTab : defaultAutoRedirectNewTab;
       if (pageRedirectSetting.enabled !== false && pageUrl) {
-        pageAutoRedirectTag = createAutoRedirectTag(pageUrl, pageDelay, pageNewTab);
+        pageAutoRedirectTag = createAutoRedirectTag(pageUrl, pageDelay);
       }
     } else if (isGlobalAutoRedirectEnabled) {
-      pageAutoRedirectTag = createAutoRedirectTag(defaultAutoRedirectUrl, defaultAutoRedirectDelay, defaultAutoRedirectNewTab);
+      pageAutoRedirectTag = createAutoRedirectTag(defaultAutoRedirectUrl, defaultAutoRedirectDelay);
     }
 
     // テンプレート置換
@@ -364,7 +352,7 @@ function build() {
   let portalAutoRedirectTag = '';
   // rootMode が 'redirect' 以外の時（ポータル一覧表示時）のみトップページでも自動転送
   if (rootMode !== 'redirect' && isGlobalAutoRedirectEnabled) {
-    portalAutoRedirectTag = createAutoRedirectTag(defaultAutoRedirectUrl, defaultAutoRedirectDelay, defaultAutoRedirectNewTab);
+    portalAutoRedirectTag = createAutoRedirectTag(defaultAutoRedirectUrl, defaultAutoRedirectDelay);
   }
 
   let portalHtml = templateIndex
