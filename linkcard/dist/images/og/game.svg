@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogGameBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0b0f19" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogGameBg)" />
+  <rect x="40" y="40" width="1120" height="550" rx="20" fill="none" stroke="#3b82f6" stroke-opacity="0.15" stroke-width="2" />
+  <!-- Gamepad icon representation -->
+  <g transform="translate(600, 220) scale(1.6)">
+    <circle cx="0" cy="0" r="45" fill="#1f2937" stroke="#3b82f6" stroke-width="2" />
+    <path d="M-22 -8 C-18 -10 -8 -10 -4 -8 C0 -6 2 0 2 6 C2 12 -4 14 -7 13 C-10 12 -12 7 -14 7 C-16 7 -18 12 -21 13 C-24 14 -30 12 -30 6 C-30 0 -26 -6 -22 -8 Z" fill="#60a5fa" transform="translate(14, -2)"/>
+  </g>
+  <text x="600" y="370" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="52" font-weight="700" fill="#f9fafb" text-anchor="middle" letter-spacing="1">siyou Games</text>
+  <text x="600" y="425" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="400" fill="#93c5fd" text-anchor="middle">Live Streaming &amp; Community</text>
+  <rect x="520" y="475" width="160" height="36" rx="18" fill="#1e293b" />
+  <text x="600" y="499" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" fill="#60a5fa" text-anchor="middle" letter-spacing="1">GAMING HUB</text>
+</svg>
