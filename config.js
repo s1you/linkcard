@@ -100,7 +100,7 @@ const config = {
       og: {
         title: "例のアレ",
         description: "",
-        image: "images/og/default.png", // プロフィール専用のOGP画像
+        image: "images/og/douga.png", // プロフィール専用のOGP画像
       },
 
       // リンク一覧（上から順番に表示されます）
@@ -117,12 +117,12 @@ const config = {
 
     // ----------------------------------------------------------------
     // 【プロフィール 2】ゲーム専用プロフィール (game)
-    // URL: https://<あなたのサイト>/jaguchi/
+    // URL: https://<あなたのサイト>/haikan/
     // ----------------------------------------------------------------
-    jaguchi: {
+    haikan_onna: {
       name: "真相はこちらから",
       bio: "",
-      profileImage: "images/profile/jaguchi-onna.png",
+      profileImage: "images/profile/default.png",
 
       background: {
         type: "color",
@@ -132,14 +132,14 @@ const config = {
       og: {
         title: "真相はこちらから🔞",
         description: "",
-        image: "images/og/jaguchi-onna.png",
+        image: "images/og/haikan_onna.png",
       },
 
       links: [
         {
           title: "🔞🔞🔞",
           url: urls.tkl,
-          image: "images/links/jaguchi-onna.png",
+          image: "images/links/douga.png",
           description: "",
         },
       ],
