@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+# main ブランチへの push または GitHub 上での手動実行時にトリガー
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# GitHub Pages へのデプロイに必要な権限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時デプロイの競合を防止
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js のセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 静的サイトのビルド (HTML/OGP生成)
+        run: node build.js
+
+      - name: GitHub Pages の設定
+        uses: actions/configure-pages@v4
+
+      - name: ビルド成果物 (dist/) のアップロード
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: GitHub Pages へデプロイ
+        id: deployment
+        uses: actions/deploy-pages@v4
