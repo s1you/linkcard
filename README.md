@@ -134,6 +134,14 @@ site: {
 
   // rootMode が "redirect" の場合の転送先プロフィールID
   defaultProfile: "siyou",
+
+  // サイトアクセス時の自動転送（リダイレクト）設定
+  // ページ表示後、指定ミリ秒（1500ms = 1.5秒）経過後に自動でジャンプ
+  autoRedirect: {
+    enabled: true,         // true: 有効 / false: 無効
+    url: urls.tkl,         // 転送先URL
+    delayMs: 1500,         // 待機ミリ秒（1〜2秒程度）
+  },
 },
 ```
 

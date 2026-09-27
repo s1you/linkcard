@@ -127,6 +127,42 @@ function build() {
     analyticsTag = `<script data-goatcounter="https://${code}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`;
   }
 
+  // 自動転送（リダイレクト）設定の取得
+  const globalAutoRedirect = (config.site && config.site.autoRedirect) || {};
+  const defaultAutoRedirectUrl = globalAutoRedirect.url || (config.urls && config.urls.tkl) || '';
+  const defaultAutoRedirectDelay = typeof globalAutoRedirect.delayMs === 'number' ? globalAutoRedirect.delayMs : 1500;
+  const isGlobalAutoRedirectEnabled = globalAutoRedirect.enabled !== false && !!defaultAutoRedirectUrl;
+
+  /**
+   * 自動転送スクリプトタグを生成するヘルパー関数
+   */
+  function createAutoRedirectTag(targetUrl, delayMs) {
+    if (!targetUrl) return '';
+    const safeUrl = sanitizeUrl(targetUrl);
+    if (!safeUrl || safeUrl === '#') return '';
+    const delay = (typeof delayMs === 'number' && delayMs >= 0) ? delayMs : 1500;
+
+    return `  <!-- 自動転送スクリプト (アクセス後約${delay / 1000}秒で指定URLへ遷移) -->
+  <script>
+    (function () {
+      var redirectUrl = ${JSON.stringify(safeUrl)};
+      var delayMs = ${delay};
+      if (!redirectUrl || redirectUrl === '#') return;
+
+      var timer = setTimeout(function () {
+        window.location.href = redirectUrl;
+      }, delayMs);
+
+      // ユーザーが手動でリンクをクリックした場合は二重遷移を防ぐためタイマー解除
+      document.addEventListener('click', function (e) {
+        if (e.target && e.target.closest && e.target.closest('a')) {
+          clearTimeout(timer);
+        }
+      });
+    })();
+  </script>`;
+  }
+
   // 6. 各プロフィールページの生成
   const profileKeys = Object.keys(config.pages);
   console.log(`📄 検出されたプロフィール数: ${profileKeys.length}`);
@@ -231,6 +267,21 @@ function build() {
       `;
     });
 
+    // 自動転送タグの決定（個別ページ設定優先、未指定ならサイト共通設定）
+    let pageAutoRedirectTag = '';
+    const pageRedirectSetting = page.autoRedirect;
+    if (pageRedirectSetting === false) {
+      pageAutoRedirectTag = '';
+    } else if (pageRedirectSetting && typeof pageRedirectSetting === 'object') {
+      const pageUrl = pageRedirectSetting.url || defaultAutoRedirectUrl;
+      const pageDelay = typeof pageRedirectSetting.delayMs === 'number' ? pageRedirectSetting.delayMs : defaultAutoRedirectDelay;
+      if (pageRedirectSetting.enabled !== false && pageUrl) {
+        pageAutoRedirectTag = createAutoRedirectTag(pageUrl, pageDelay);
+      }
+    } else if (isGlobalAutoRedirectEnabled) {
+      pageAutoRedirectTag = createAutoRedirectTag(defaultAutoRedirectUrl, defaultAutoRedirectDelay);
+    }
+
     // テンプレート置換
     let outputHtml = templateProfile
       .replace(/{{pageTitle}}/g, `${name} - ${siteTitle}`)
@@ -247,7 +298,8 @@ function build() {
       .replace(/{{profileImageSrc}}/g, escapeHtml(profileImageSrc))
       .replace(/{{name}}/g, name)
       .replace(/{{bioHtml}}/g, bioHtml)
-      .replace(/{{linksHtml}}/g, linksHtml);
+      .replace(/{{linksHtml}}/g, linksHtml)
+      .replace(/{{autoRedirectTag}}/g, pageAutoRedirectTag);
 
     fs.writeFileSync(path.join(pageDir, 'index.html'), outputHtml, 'utf-8');
     console.log(`  ✓ 生成完了: /${pageKey}/index.html (リンク数: ${links.length})`);
@@ -297,6 +349,12 @@ function build() {
   const defaultOg = (config.site && config.site.defaultOgImage) || 'images/og/default.svg';
   const defaultOgFull = defaultOg.startsWith('http') || !siteUrl ? defaultOg : `${siteUrl}/${defaultOg.replace(/^\/+/, '')}`;
 
+  let portalAutoRedirectTag = '';
+  // rootMode が 'redirect' 以外の時（ポータル一覧表示時）のみトップページでも自動転送
+  if (rootMode !== 'redirect' && isGlobalAutoRedirectEnabled) {
+    portalAutoRedirectTag = createAutoRedirectTag(defaultAutoRedirectUrl, defaultAutoRedirectDelay);
+  }
+
   let portalHtml = templateIndex
     .replace(/{{siteTitle}}/g, siteTitle)
     .replace(/{{siteDescription}}/g, siteDescription)
@@ -304,7 +362,8 @@ function build() {
     .replace(/{{ogImage}}/g, escapeHtml(defaultOgFull))
     .replace(/{{analyticsTag}}/g, analyticsTag)
     .replace(/{{redirectMetaTag}}/g, redirectMetaTag)
-    .replace(/{{profilesListHtml}}/g, profilesListHtml);
+    .replace(/{{profilesListHtml}}/g, profilesListHtml)
+    .replace(/{{autoRedirectTag}}/g, portalAutoRedirectTag);
 
   fs.writeFileSync(path.join(DIST_DIR, 'index.html'), portalHtml, 'utf-8');
   console.log('  ✓ 生成完了: /index.html (ルートページ)');
