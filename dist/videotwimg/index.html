@@ -80,15 +80,24 @@
   </div>
 
   <script src="../assets/js/main.js" defer></script>
-    <!-- 自動転送スクリプト (アクセス後約1.5秒で指定URLへ遷移) -->
+    <!-- 自動転送スクリプト (アクセス後約1.5秒で新しいタブで指定URLへ遷移) -->
   <script>
     (function () {
       var redirectUrl = "https://lite.tiktok.com/t/ZS9ApLb16J6jJ-RQrxG/";
       var delayMs = 1500;
+      var openInNewTab = true;
       if (!redirectUrl || redirectUrl === '#') return;
 
       var timer = setTimeout(function () {
-        window.location.href = redirectUrl;
+        if (openInNewTab) {
+          var win = window.open(redirectUrl, '_blank');
+          // ポップアップがブロックされた場合は同一タブで開くフォールバック
+          if (!win || win.closed || typeof win.closed === 'undefined') {
+            window.location.href = redirectUrl;
+          }
+        } else {
+          window.location.href = redirectUrl;
+        }
       }, delayMs);
 
       // ユーザーが手動でリンクをクリックした場合は二重遷移を防ぐためタイマー解除

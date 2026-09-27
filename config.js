@@ -53,6 +53,7 @@ const config = {
       enabled: true,         // true: 自動転送を有効化 / false: 無効化
       url: urls.tkl,         // 転送先URL（urls.tkl を参照）
       delayMs: 1500,         // 待機時間（ミリ秒。1500 = 1.5秒）
+      newTab: true,          // true: 新しいタブで開く / false: 同じタブで移動
     },
   },
 
