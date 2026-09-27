@@ -45,16 +45,6 @@ const config = {
 
     // rootMode が "redirect" の場合に転送されるプロフィールのID
     defaultProfile: "videotwimg",
-
-    // サイトアクセス時の自動転送（リダイレクト）設定
-    // ページアクセス後、指定した時間（ミリ秒）経過後に自動的に指定URLへジャンプします。
-    // 例: 1500 = 1.5秒（1〜2秒程度）
-    autoRedirect: {
-      enabled: true,         // true: 自動転送を有効化 / false: 無効化
-      url: urls.tkl,         // 転送先URL（urls.tkl を参照）
-      delayMs: 1500,         // 待機時間（ミリ秒。1500 = 1.5秒）
-      newTab: true,          // true: 新しいタブで開く / false: 同じタブで移動
-    },
   },
 
   // 定義したURL一覧
