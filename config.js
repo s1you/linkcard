@@ -119,8 +119,8 @@ const config = {
     },
 
     // ----------------------------------------------------------------
-    // 【プロフィール 2】ゲーム専用プロフィール (game)
-    // URL: https://<あなたのサイト>/haikan/
+    // 【プロフィール 2】ゲーム専用プロフィール (haikan_onna)
+    // URL: https://<あなたのサイト>/haikan_onna/
     // ----------------------------------------------------------------
     haikan_onna: {
       name: "真相はこちらから",
@@ -136,6 +136,35 @@ const config = {
         title: "真相はこちらから🔞",
         description: "",
         image: "images/og/haikan_onna.png",
+      },
+
+      links: [
+        {
+          title: "🔞🔞🔞",
+          url: urls.tkl,
+          image: "images/links/douga.png",
+          description: "",
+        },
+      ],
+    },
+    // ----------------------------------------------------------------
+    // 【プロフィール 2】ゲーム専用プロフィール (densha_jk)
+    // URL: https://<あなたのサイト>/densha_jk/
+    // ----------------------------------------------------------------
+    densha_jk: {
+      name: "真相はこちらから",
+      bio: "",
+      profileImage: "images/profile/default.png",
+
+      background: {
+        type: "color",
+        value: "#0c0f17",
+      },
+
+      og: {
+        title: "真相はこちらから🔞",
+        description: "",
+        image: "images/og/densha_jk.png",
       },
 
       links: [
