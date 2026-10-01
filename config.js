@@ -16,7 +16,7 @@
 // URLはここにまとめて指定し、下の設定から参照します。
 const urls = {
   site: "https://s1you.github.io/linkcard",
-  tkl: "https://lite.tiktok.com/t/ZS9ApLb16J6jJ-RQrxG/",
+  tkl: "https://lite.tiktok.com/t/ZS9DFWAfM88vJ-VAmna/",
 };
 
 const config = {
