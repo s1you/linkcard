@@ -176,6 +176,36 @@ const config = {
         },
       ],
     },
+
+    // ----------------------------------------------------------------
+    // 【プロフィール 2】ゲーム専用プロフィール (shudan_stalking)
+    // URL: https://<あなたのサイト>/shudan_stalking/
+    // ----------------------------------------------------------------
+    shudan_stalking: {
+      name: "真相はこちらから",
+      bio: "",
+      profileImage: "images/profile/default.png",
+
+      background: {
+        type: "color",
+        value: "#0c0f17",
+      },
+
+      og: {
+        title: "真相はこちらから🔞",
+        description: "",
+        image: "images/og/shudan_stalking.png",
+      },
+
+      links: [
+        {
+          title: "🔞🔞🔞",
+          url: urls.tkl,
+          image: "images/links/douga.png",
+          description: "",
+        },
+      ],
+    },
   },
 };
 
