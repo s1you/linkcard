@@ -206,6 +206,37 @@ const config = {
         },
       ],
     },
+
+    // ----------------------------------------------------------------
+    // 【プロフィール 2】ゲーム専用プロフィール (idol_wrap)
+    // URL: https://<あなたのサイト>/idol_wrap/
+    // ----------------------------------------------------------------
+    idol_wrap: {
+      name: "真相はこちらから",
+      bio: "",
+      profileImage: "images/profile/default.png",
+
+      background: {
+        type: "color",
+        value: "#0c0f17",
+      },
+
+      og: {
+        title: "真相はこちらから🔞",
+        description: "",
+        image: "images/og/idol_wrap.png",
+      },
+
+      links: [
+        {
+          title: "🔞🔞🔞",
+          url: urls.tkl,
+          image: "images/links/douga.png",
+          description: "",
+        },
+      ],
+    },
+
   },
 };
 
