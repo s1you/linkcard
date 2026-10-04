@@ -76,7 +76,7 @@ const config = {
   // 例: "videotwimg" → https://<あなたのサイト>/videotwimg/
   pages: {
     // ----------------------------------------------------------------
-    // 【プロフィール 1】メインプロフィール (videotwimg)
+    // videotwimg プロフィール (videotwimg)
     // ----------------------------------------------------------------
     videotwimg: {
       // 画面に表示される名前 (必須)
@@ -103,7 +103,7 @@ const config = {
       og: {
         title: "例のアレ",
         description: "",
-        image: "images/og/douga.png", // プロフィール専用のOGP画像
+        image: "images/og/default.png", // プロフィール専用のOGP画像
       },
 
       // リンク一覧（上から順番に表示されます）
@@ -112,74 +112,13 @@ const config = {
         {
           title: "こちらから見れます",
           url: urls.tkl,
-          image: "images/links/douga.png", // 16:9比率の画像
-          description: "",
-        },
-      ],
-    },
-
-    // ----------------------------------------------------------------
-    // 【プロフィール 2】ゲーム専用プロフィール (haikan_onna)
-    // URL: https://<あなたのサイト>/haikan_onna/
-    // ----------------------------------------------------------------
-    haikan_onna: {
-      name: "真相はこちらから",
-      bio: "",
-      profileImage: "images/profile/default.png",
-
-      background: {
-        type: "color",
-        value: "#0c0f17",
-      },
-
-      og: {
-        title: "真相はこちらから🔞",
-        description: "",
-        image: "images/og/haikan_onna.png",
-      },
-
-      links: [
-        {
-          title: "🔞🔞🔞",
-          url: urls.tkl,
-          image: "images/links/douga.png",
+          image: "images/links/default.png", // 16:9比率の画像
           description: "",
         },
       ],
     },
     // ----------------------------------------------------------------
-    // 【プロフィール 2】ゲーム専用プロフィール (densha_jk)
-    // URL: https://<あなたのサイト>/densha_jk/
-    // ----------------------------------------------------------------
-    densha_jk: {
-      name: "真相はこちらから",
-      bio: "",
-      profileImage: "images/profile/default.png",
-
-      background: {
-        type: "color",
-        value: "#0c0f17",
-      },
-
-      og: {
-        title: "真相はこちらから🔞",
-        description: "",
-        image: "images/og/densha_jk.png",
-      },
-
-      links: [
-        {
-          title: "🔞🔞🔞",
-          url: urls.tkl,
-          image: "images/links/douga.png",
-          description: "",
-        },
-      ],
-    },
-
-    // ----------------------------------------------------------------
-    // 【プロフィール 2】ゲーム専用プロフィール (shudan_stalking)
-    // URL: https://<あなたのサイト>/shudan_stalking/
+    // shudan_stalking プロフィール (shudan_stalking)
     // ----------------------------------------------------------------
     shudan_stalking: {
       name: "真相はこちらから",
@@ -201,15 +140,13 @@ const config = {
         {
           title: "🔞🔞🔞",
           url: urls.tkl,
-          image: "images/links/douga.png",
+          image: "images/links/default.png",
           description: "",
         },
       ],
     },
-
     // ----------------------------------------------------------------
-    // 【プロフィール 2】ゲーム専用プロフィール (idol_wrap)
-    // URL: https://<あなたのサイト>/idol_wrap/
+    // idol_wrap プロフィール (idol_wrap)
     // ----------------------------------------------------------------
     idol_wrap: {
       name: "真相はこちらから",
@@ -231,15 +168,14 @@ const config = {
         {
           title: "🔞🔞🔞",
           url: urls.tkl,
-          image: "images/links/douga.png",
+          image: "images/links/default.png",
           description: "",
         },
       ],
     },
 
     // ----------------------------------------------------------------
-    // 【プロフィール 2】ゲーム専用プロフィール (slime)
-    // URL: https://<あなたのサイト>/slime/
+    // s プロフィール (shudan_stalking)
     // ----------------------------------------------------------------
     slime: {
       name: "真相はこちらから",
@@ -261,7 +197,7 @@ const config = {
         {
           title: "🔞🔞🔞",
           url: urls.tkl,
-          image: "images/links/douga.png",
+          image: "images/links/default.png",
           description: "",
         },
       ],
