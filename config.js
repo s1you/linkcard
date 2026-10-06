@@ -203,10 +203,10 @@ const config = {
       ],
     },
     // ----------------------------------------------------------------
-    // thina プロフィール (shudan_stalking)
+    // thina プロフィール (thina)
     // ----------------------------------------------------------------
     thina: {
-      name: "真相はこちらから",
+      name: "流失はこちらから",
       bio: "",
       profileImage: "images/profile/default.png",
 
@@ -216,9 +216,9 @@ const config = {
       },
 
       og: {
-        title: "真相はこちらから🔞",
+        title: "流失はこちらから🔞",
         description: "",
-        image: "images/og/slime.png",
+        image: "images/og/thina.png",
       },
 
       links: [
