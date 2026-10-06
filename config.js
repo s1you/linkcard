@@ -175,9 +175,37 @@ const config = {
     },
 
     // ----------------------------------------------------------------
-    // s プロフィール (shudan_stalking)
+    // slime プロフィール (slime)
     // ----------------------------------------------------------------
     slime: {
+      name: "真相はこちらから",
+      bio: "",
+      profileImage: "images/profile/default.png",
+
+      background: {
+        type: "color",
+        value: "#0c0f17",
+      },
+
+      og: {
+        title: "真相はこちらから🔞",
+        description: "",
+        image: "images/og/slime.png",
+      },
+
+      links: [
+        {
+          title: "🔞🔞🔞",
+          url: urls.tkl,
+          image: "images/links/default.png",
+          description: "",
+        },
+      ],
+    },
+    // ----------------------------------------------------------------
+    // thina プロフィール (shudan_stalking)
+    // ----------------------------------------------------------------
+    thina: {
       name: "真相はこちらから",
       bio: "",
       profileImage: "images/profile/default.png",
