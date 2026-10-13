@@ -202,6 +202,7 @@ const config = {
         },
       ],
     },
+    
     // ----------------------------------------------------------------
     // thina プロフィール (thina)
     // ----------------------------------------------------------------
@@ -219,6 +220,36 @@ const config = {
         title: "流失はこちらから🔞",
         description: "",
         image: "images/og/thina.png",
+      },
+
+      links: [
+        {
+          title: "🔞🔞🔞",
+          url: urls.tkl,
+          image: "images/links/default.png",
+          description: "",
+        },
+      ],
+    },
+
+    
+    // ----------------------------------------------------------------
+    // minado プロフィール (minado)
+    // ----------------------------------------------------------------
+    minado: {
+      name: "みなど地理系の本名はこちらから",
+      bio: "",
+      profileImage: "images/profile/default.png",
+
+      background: {
+        type: "color",
+        value: "#0c0f17",
+      },
+
+      og: {
+        title: "みなど地理系の本名はこちらから🔞",
+        description: "",
+        image: "images/og/default.png",
       },
 
       links: [
