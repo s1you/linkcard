@@ -260,6 +260,36 @@ const config = {
         },
       ],
     },
+
+
+    // ----------------------------------------------------------------
+    // rougai_jk プロフィール (rougai_jk)
+    // ----------------------------------------------------------------
+    rougai_jk: {
+      name: "この老害の真相がヤバすぎる🔞",
+      bio: "",
+      profileImage: "images/profile/default.png",
+
+      background: {
+        type: "color",
+        value: "#0c0f17",
+      },
+
+      og: {
+        title: "この老害の詳細はこちらから🔞",
+        description: "",
+        image: "images/og/rougai_jk.png",
+      },
+
+      links: [
+        {
+          title: "🔞🔞🔞",
+          url: urls.tkl,
+          image: "images/links/default.png",
+          description: "",
+        },
+      ],
+    },
   },
 };
 
